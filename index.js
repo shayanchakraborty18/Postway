@@ -13,6 +13,7 @@ import post_routes from "./src/features/post/post.routes.js";
 import comment_routes from "./src/features/comment/comment.routes.js";
 import like_routes from "./src/features/like/like.routes.js";
 import otp_router from "./src/features/otp/otp.routes.js";
+import frndship_routes from "./src/features/friendship/frndship.routes.js";
 
 
 // create server
@@ -38,6 +39,7 @@ server.use("/api/posts", post_routes);
 server.use("/api/comments", comment_routes);
 server.use("/api/likes", like_routes);
 server.use("/api/otp", otp_router);
+server.use("/api/friends", frndship_routes);
 
 //Error handler middleware
 server.use((err, req, res, next) => {

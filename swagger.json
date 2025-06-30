@@ -766,6 +766,118 @@
           }
         }
       }
+    },
+    "/api/friends/toggle-friendship/{friendID}": {
+      "post": {
+        "tags": [
+          "FriendShip"
+        ],
+        "summary": "send friend request",
+        "description": "toggle friend request",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "friendID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "friend request sent"
+          }
+        }
+      }
+    },
+    "/api/friends/get-pending-requests": {
+      "get": {
+        "tags": [
+          "FriendShip"
+        ],
+        "summary": "get friend request of user",
+        "description": "get friend request",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "pending request got"
+          },
+          "404": {
+            "description": "no pending requests"
+          }
+        }
+      }
+    },
+    "/api/friends/response-to-request/{friendID}": {
+      "post": {
+        "tags": [
+          "FriendShip"
+        ],
+        "summary": "response to request, accept or reject",
+        "description": "response to friend request",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "friendID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "updated successfully"
+          }
+        }
+      }
+    },
+    "/api/friends/get-friends/{userID}": {
+      "get": {
+        "tags": [
+          "FriendShip"
+        ],
+        "summary": "get users friends",
+        "description": "user friends",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user's friends found"
+          },
+          "404": {
+            "description": "No friends of this user"
+          }
+        }
+      }
     }
   }
 }
