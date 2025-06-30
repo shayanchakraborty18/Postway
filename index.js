@@ -20,7 +20,7 @@ import frndship_routes from "./src/features/friendship/frndship.routes.js";
 const server = express();
 const port = process.env.PORT || 3000;
 
-server.use(cors()); // apply cors
+server.use(cors("*")); // apply cors
 
 server.use(express.json()); // to accept json
 
