@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const DB_URL = process.env.DB_URL || `mongodb://0.0.0.0:27017`;
 
-const FULL_URL = DB_URL + '/postaway';
+const FULL_URL = DB_URL + '/Postway';
 
 const connectToMongoDB = async () => {
 	try {
