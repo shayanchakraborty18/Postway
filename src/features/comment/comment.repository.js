@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import {commentSchema} from "./comment.schema.js";
 import {ApplicationError} from "../../error-handler/applicationError.js";
 
-const CommentModel = new mongoose.model("Comment", commentSchema)
+const CommentModel = mongoose.model("Comment", commentSchema)
 
 export class CommentRepository {
 

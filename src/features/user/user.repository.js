@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 
 //creation of model from userSchema
-const UserModel = new mongoose.model("User", userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 // creation of BlacklistedTokenModel
 const BlacklistedTokenModel = new mongoose.model('BlacklistedToken', blacklistedTokenSchema);
@@ -89,7 +89,7 @@ export default class UserRepository {
 			throw new ApplicationError("Something went wrong with database", 500);
 		}
 	}
- 
+
 	async addToBlackList(token) {
 		try {
 			const decoded = jwt.decode(token);

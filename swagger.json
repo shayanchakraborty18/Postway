@@ -614,6 +614,158 @@
           }
         }
       }
+    },
+    "/api/likes/toggle/{id}": {
+      "post": {
+        "tags": [
+          "Likes"
+        ],
+        "summary": "Toggle Like on post",
+        "description": "post Toggle Like",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "liked successfully"
+          },
+          "404": {
+            "description": "like failed"
+          }
+        }
+      }
+    },
+    "/api/likes/{id}": {
+      "get": {
+        "tags": [
+          "Likes"
+        ],
+        "summary": "get Like on post or comment",
+        "description": "get Like on post or comment",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "get liked post or comment"
+          },
+          "404": {
+            "description": "post or comment not found"
+          }
+        }
+      }
+    },
+    "/api/otp/send": {
+      "post": {
+        "tags": [
+          "OTP"
+        ],
+        "summary": "sending OTP to user' email",
+        "description": "send OTP",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OTP is sent"
+          }
+        }
+      }
+    },
+    "/api/otp/verify/{otp}": {
+      "get": {
+        "tags": [
+          "OTP"
+        ],
+        "summary": "varifing email by sending OTP",
+        "description": "Varify OTP",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "otp",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OTP is varified"
+          },
+          "404": {
+            "description": "OTP is not matched"
+          }
+        }
+      }
+    },
+    "/api/otp/reset-password": {
+      "post": {
+        "tags": [
+          "OTP"
+        ],
+        "summary": "reset password for user",
+        "description": "reset password",
+        "security": [
+          {
+            "JWT": {}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Password is updated"
+          },
+          "404": {
+            "description": "sent new OTP please"
+          }
+        }
+      }
     }
   }
 }

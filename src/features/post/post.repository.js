@@ -3,7 +3,7 @@ import {PostModel} from "./post.model.js";
 import mongoose from "mongoose";
 import {postSchema} from "./post.schema.js";
 
-const PModel = new mongoose.model("Post", postSchema);
+const PModel = mongoose.model("Post", postSchema);
 
 class PostRepository {
 
